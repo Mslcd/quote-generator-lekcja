@@ -25,17 +25,17 @@ function getRandomInt(max) {
 function newQuote(){
     let i = getRandomInt(apiQuotes.length);
     if(apiQuotes[i]["text"].length>120){
-        quoteText.style = "long-quote";
+        quoteText.classList.add("long-quote");
     }
     else{
-        quoteText.style = "quote-text";
+        quoteText.classList.remove("long-quote");
     }
-    quoteText.innerText = apiQuotes[i]["text"];
+    quoteText.textContent = apiQuotes[i]["text"];
     if(!apiQuotes[i]["author"]){
-        authorText.innerText = "Unknown";
+        authorText.textContent = "Unknown";
     }
     else{
-        authorText.innerText = apiQuotes[i]["author"];
+        authorText.textContent = apiQuotes[i]["author"];
     }
     
 }
