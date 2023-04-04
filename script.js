@@ -7,16 +7,7 @@ let apiQuotes = [];
 
 newQuoteBtn.addEventListener("click", newQuote);
 
-async function getQuotes(){
-    const apiUrl = "https://type.fit/api/quotes";
-    try{
-        const response = await fetch(apiUrl);
-        apiQuotes = await response.json();
-    }
-    catch{
-        alert("Coś nie siadło")
-    }
-}
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -38,6 +29,18 @@ function newQuote(){
         authorText.textContent = apiQuotes[i]["author"];
     }
     
+}
+
+async function getQuotes(){
+    const apiUrl = "https://type.fit/api/quotes";
+    try{
+        const response = await fetch(apiUrl);
+        apiQuotes = await response.json();
+        newQuote()
+    }
+    catch{
+        alert("Coś nie siadło")
+    }
 }
 
 getQuotes();
